@@ -15,7 +15,7 @@ import retrofit2.Response;
 
 public class UserListModel implements UserListContract.Model {
     private final String TAG = "UserListModel";
-    private final String GITHUB_TOKEN = "token f56048e200e9353b54538df956abbfb2ed47b749";
+    private final String GITHUB_TOKEN = "token ...";
 
     List<User> users = new ArrayList<>();
     int count = 0;
