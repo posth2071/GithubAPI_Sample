@@ -1,6 +1,9 @@
 # Retrofit2 사용예시
 ## Github REST API + MVP 패턴 + Glide&nbsp; 사용
-<img src="https://user-images.githubusercontent.com/51239479/83843959-0c579280-a741-11ea-9b0f-6841fac26db8.JPG" width="700" height="370")
+<img src="https://user-images.githubusercontent.com/51239479/83843959-0c579280-a741-11ea-9b0f-6841fac26db8.JPG"  width="700" height="370">
+
+
+출처: https://cutemoomin.tistory.com/112 [무민은귀여워]
 
 ![GIF1](https://user-images.githubusercontent.com/51239479/83847131-aa019080-a746-11ea-85bb-ba3499b3f679.gif)
 
