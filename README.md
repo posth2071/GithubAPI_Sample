@@ -6,7 +6,7 @@
 
 ## Tistory Blog
 
-[Tistory 설명 글 보러가기](https://jaejong.tistory.com/93?category=873924){:target="_blank"}
+[Tistory 설명 글 보러가기](https://jaejong.tistory.com/93?category=873924 target="_blank")
 
 <p align="center">
 	<img src="https://user-images.githubusercontent.com/51239479/83849289-277ad000-a74a-11ea-812f-f02d0c39291c.JPG" width="750" />
