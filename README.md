@@ -10,15 +10,12 @@
 <p align="center">
 	<img src="https://user-images.githubusercontent.com/51239479/83849289-277ad000-a74a-11ea-812f-f02d0c39291c.JPG" width="750" />
 </p>
-<p><span style="color: #000000;"><!--Title 시작--></span></p>
-<p class="editor_title">Retrofit2 사용예시 - Github REST API + MVP 패턴 + Glide&nbsp; 사용</p>
-<p><span style="color: #000000;"><!--Title 종료--></span></p>
-<p>[##_Image|kage@pv9OU/btqDDvIEwso/bDck1qvCt8gxgiAWDdKRaK/img.gif|alignCenter|data-filename="Honeycam 2020-04-23 02-13-12.gif" data-origin-width="398" data-origin-height="819" width="268" height="NaN" data-ke-mobilestyle="widthContent"|완성 모습||_##]</p>
-<p><!-- 소제목 시작 --></p>
-<h2 class="editor_sub_title">패키지 구조</h2>
-<p>[##_Image|kage@cu6nts/btqECiVipga/emo0Mizklt9aVZMwZ5lEuK/img.png|alignCenter|data-filename="패키지구조(펼침).png" data-origin-width="395" data-origin-height="533" width="322" height="NaN" data-ke-mobilestyle="widthContent"|패키지 구조||_##]</p>
-<p style="position: absolute;">&nbsp;</p>
-<p><!-- 소제목 종료 --></p>
+
+## 패키지 구조</h2>
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/51239479/83849637-aec84380-a74a-11ea-8c11-99ab355a8b4a.png"/>
+</p>
+
 <ul style="list-style-type: disc;" data-ke-list-type="disc">
 <li><b>View</b> : 화면 표시 및 사용자 이벤트 Presenter에게 전달해서 처리를 위임 (<u>Activity</u>)</li>
 <li><b>Presenter</b> : View - Model 사이 <u>매개체</u> (View로부터 받은 이벤트를 처리하고 Model을 업데이트)</li>
