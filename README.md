@@ -1,6 +1,6 @@
 # Retrofit2 사용예시
 ## Github REST API + MVP 패턴 + Glide&nbsp; 사용
-![test](https://user-images.githubusercontent.com/51239479/83843959-0c579280-a741-11ea-9b0f-6841fac26db8.JPG)
+![test](https://user-images.githubusercontent.com/51239479/83843959-0c579280-a741-11ea-9b0f-6841fac26db8.JPG){: width="100" height="100"}
 
 ![GIF1](https://user-images.githubusercontent.com/51239479/83847131-aa019080-a746-11ea-85bb-ba3499b3f679.gif)
 
