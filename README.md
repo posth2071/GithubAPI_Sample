@@ -7,7 +7,7 @@
 ## Tistory Blog
 [Tistory 설명 글 보러가기](jaejong.tistory.com/93#UserListModel)
 
-![캡처](https://user-images.githubusercontent.com/51239479/83849289-277ad000-a74a-11ea-812f-f02d0c39291c.JPG)
+![캡처](https://user-images.githubusercontent.com/51239479/83849289-277ad000-a74a-11ea-812f-f02d0c39291c.JPG){: width="400"}
 
 <p><span style="color: #000000;"><!--Title 시작--></span></p>
 <p class="editor_title">Retrofit2 사용예시 - Github REST API + MVP 패턴 + Glide&nbsp; 사용</p>
