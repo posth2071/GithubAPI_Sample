@@ -20,15 +20,16 @@ import com.jjj.githubapi_sample.Model.User;
 import java.util.List;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> implements UserAdapterContract.View, UserAdapterContract.Model {
+
     private final String TAG = "UserAdapter";
     private Context context;
     private OnItemClick onItemClick;
     private List<User> users;
 
-    public UserAdapter(Context context) {
-        this.context = context;
-    }
+    // UserAdapter 생성자
+    public UserAdapter(Context context) { this.context = context; }
 
+    // onCreateViewHolder 구현
     @NonNull
     @Override
     public UserAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -37,15 +38,19 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> im
         return new UserAdapter.ViewHolder(view);
     }
 
+    // onBindViewHolder 구현 - RecyclerView Item 세팅 부분
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
         User user = users.get(position);
-//        holder.image.setText(user.getImage());
+
+        // Glide 이미지 라이브러리 사용
         Glide.with(context)
                 .load(user.getImage())
                 .apply(new RequestOptions().circleCrop())
                 .into(holder.image);
 
+        // Item 세팅 (이름 + 지역 + 블로그URL + Follower & Following)
         holder.name.setText(user.getLogin());
         holder.location.setText(user.getLocation());
         holder.blog.setText(user.getBlog());
@@ -64,12 +69,15 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> im
     }
 
 
+    // ViewHolder 클래스 정의
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView name, location, blog, follower, following;
         ImageView image;
 
+        // ViewHolder 생성자
         public ViewHolder(@NonNull View view) {
             super(view);
+
             name = view.findViewById(R.id.user_name);
             location = view.findViewById(R.id.user_location);
             blog = view.findViewById(R.id.user_blog);
@@ -78,30 +86,36 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> im
 
             image = view.findViewById(R.id.user_image);
 
+            // RecyclerView Item 클릭리스너 등록
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    // OnItemClick 인터페이스 메서드 사용 (Presenter에게 이벤트 처리 위임)
                     onItemClick.onItemClick(getAdapterPosition());
                 }
             });
         }
     }
 
+    // Adapter.View Contract 추상메서드 정의 (Presenter에서 사용)
     @Override
     public void notifyAdapter() {
         notifyDataSetChanged();
     }
 
+    // Adapter.View Contract 추상메서드 정의 (Presenter에서 사용)
     @Override
     public void setOnClickListener(OnItemClick clickListener) {
         this.onItemClick = clickListener;
     }
 
+    // Adapter.Model Contract 추상메서드 정의 (Presenter에서 사용)
     @Override
     public void setData(List<User> users) {
         this.users = users;
     }
 
+    // Adapter.View Contract 추상메서드 정의 (Presenter에서 사용)
     @Override
     public User user(int position) {
         return users.get(position);

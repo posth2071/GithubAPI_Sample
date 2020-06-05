@@ -3,21 +3,29 @@ package com.jjj.githubapi_sample.Model;
 import com.google.gson.annotations.SerializedName;
 
 public class User {
-    @SerializedName("login")
+
+    @SerializedName("login")		// 'login' - 이름
     private String login;
-    @SerializedName("id")
+
+    @SerializedName("id")		// 'id' - 순서
     private int id;
-    @SerializedName("avatar_url")
+
+    @SerializedName("avatar_url")	// 'avatar_url' - 프로필사진 URL
     private String image;
-    @SerializedName("blog")
+
+    @SerializedName("blog")		// 'blog' - 블로그 URL
     private String blog;
-    @SerializedName("location")
+
+    @SerializedName("location")		// 'location' - 지역
     private String location;
-    @SerializedName("followers")
+
+    @SerializedName("followers")	// 'followers' - 팔로워 수
     private int followers;
-    @SerializedName("following")
+
+    @SerializedName("following")	// 'following' - 팔로윙 수
     private int following;
 
+    // User 생성자(Constructor)
     public User(String login, int id, String image, String blog, String location, int followers, int following) {
         this.login = login;
         this.id = id;
@@ -28,6 +36,7 @@ public class User {
         this.following = following;
     }
 
+    // Getter & Setter 메서드
     public String getLogin() {
         return login;
     }

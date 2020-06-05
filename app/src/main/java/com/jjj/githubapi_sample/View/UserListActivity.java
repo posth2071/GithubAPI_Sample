@@ -1,4 +1,4 @@
-package com.jjj.githubapi_sample;
+package com.jjj.githubapi_sample.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.jjj.githubapi_sample.Adapters.UserAdapter;
 import com.jjj.githubapi_sample.Contract.UserListContract;
 import com.jjj.githubapi_sample.Presenter.UserListPresenter;
+import com.jjj.githubapi_sample.R;
 
 public class UserListActivity extends AppCompatActivity implements UserListContract.View, View.OnClickListener {
     private static final String TAG = "UserListActivity";
