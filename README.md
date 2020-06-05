@@ -1,15 +1,21 @@
 # Retrofit2 사용예시
 ## Github REST API + MVP 패턴 + Glide&nbsp; 사용
-![test](https://user-images.githubusercontent.com/51239479/83843959-0c579280-a741-11ea-9b0f-6841fac26db8.JPG)
-<p><span style="color: #000000;"><!--Title 시작--></span></p>
-<p class="editor_title">Retrofit2 사용예시 - Github REST API + MVP 패턴 + Glide&nbsp; 사용</p>
-<p><span style="color: #000000;"><!--Title 종료--></span></p>
-<p>[##_Image|kage@pv9OU/btqDDvIEwso/bDck1qvCt8gxgiAWDdKRaK/img.gif|alignCenter|data-filename="Honeycam 2020-04-23 02-13-12.gif" data-origin-width="398" data-origin-height="819" width="268" height="NaN" data-ke-mobilestyle="widthContent"|완성 모습||_##]</p>
-<p><!-- 소제목 시작 --></p>
-<h2 class="editor_sub_title">패키지 구조</h2>
-<p>[##_Image|kage@cu6nts/btqECiVipga/emo0Mizklt9aVZMwZ5lEuK/img.png|alignCenter|data-filename="패키지구조(펼침).png" data-origin-width="395" data-origin-height="533" width="322" height="NaN" data-ke-mobilestyle="widthContent"|패키지 구조||_##]</p>
-<p style="position: absolute;">&nbsp;</p>
-<p><!-- 소제목 종료 --></p>
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/51239479/83848389-c6063180-a748-11ea-9fd4-a4f82894474a.gif" width="350" height="550"/>
+</p>
+
+## Tistory Blog
+[Tistory 설명 글 보러가기](jaejong.tistory.com/93#UserListModel)
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/51239479/83849289-277ad000-a74a-11ea-812f-f02d0c39291c.JPG" width="750" />
+</p>
+
+## 패키지 구조</h2>
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/51239479/83849637-aec84380-a74a-11ea-8c11-99ab355a8b4a.png"/>
+</p>
+
 <ul style="list-style-type: disc;" data-ke-list-type="disc">
 <li><b>View</b> : 화면 표시 및 사용자 이벤트 Presenter에게 전달해서 처리를 위임 (<u>Activity</u>)</li>
 <li><b>Presenter</b> : View - Model 사이 <u>매개체</u> (View로부터 받은 이벤트를 처리하고 Model을 업데이트)</li>
@@ -201,6 +207,10 @@
             @Override
             public void onResponse(Call&lt;List&lt;UserList&gt;&gt; call, Response&lt;List&lt;UserList&gt;&gt; response) {
                 if (!response.isSuccessful()) {	// 4️⃣
+                    // Presenter 통신실패 함수 호출 + Log 남기기
+                    onFinishedListener.onFailure(
+                            RequestFail_Log("MainCall", "onResponse", response)
+                    );
                     return;
                 }
                 // 통신 성공 시 결과 추출 - 30명의 User 저장
@@ -215,7 +225,13 @@
                         @Override
                         public void onResponse(Call&lt;User&gt; call, Response&lt;User&gt; response) {
                             count--;	// 통신 성공 시 count 줄이기
-                            if (!response.isSuccessful()) {	// 응답Code 체크 - 3xx &amp; 4xx의 실패 코드인지 ?
+                            
+                            // 응답Code 체크 - 3xx &amp; 4xx의 실패 코드인지 ?
+                            if (!response.isSuccessful()) {	
+                                // Presenter 통신실패 함수 호출 + Log 남기기
+                                onFinishedListener.onFailure(
+                                        RequestFail_Log("SubCall", "onResponse", response)
+                                );
                                 return;
                             }
 
@@ -229,9 +245,10 @@
                         
                         @Override
                         public void onFailure(Call&lt;User&gt; call, Throwable t) {
-                            Log.d(TAG, t.toString());
-                            // subCall 통신 요청 실패 시 onFinishedListener를 통해 Presenter에 실패 전달 
-                            onFinishedListener.onFailure(t);
+                            // Presenter 통신실패 함수 호출 + Log 남기기
+                            onFinishedListener.onFailure(
+                                    RequestFail_Log("SubCall", "onFailure", t)
+                            );
                         }
                     });
                 }
@@ -240,12 +257,31 @@
             // onFailure() 구현(재정의) - 통신 실패 시 Callback
             @Override
             public void onFailure(Call&lt;List&lt;UserList&gt;&gt; call, Throwable t) {
-                Log.d(TAG, t.toString());
-                // 통신 실패 시 Presenter에게 onFailurer()로 실패 전달
-                onFinishedListener.onFailure(t);
+                // Presenter 통신실패 함수 호출 + Log 남기기
+                onFinishedListener.onFailure(
+                        RequestFail_Log("MainCall", "onFailure", t)
+                );
             }
         });
+    }
+    
+    // REST Request 실패 시 Log 표시 함수
+    //  : onFailure 또는 onResponse 분기 구분 필요 (onResponse 응답Code가 3xx &amp; 4xx일 경우)
+    private String RequestFail_Log(String call, String point, Object result) {
+        StringBuilder errorMsg = new StringBuilder();
 
+        if (point.compareTo("onResponse")==0) {
+            // onResponse에서 응답코드가 3xx &amp; 4xx 일 경우
+            Response response = (Response)result;   // Response 타입 캐스팅
+            errorMsg.append(String.format("%s: %s Failure, Code [%d] message [%s]", point, call, response.code(), response.message()));
+        }
+        else if (point.compareTo("onFailure")==0){
+            // onFailure에서 호출한 경우 (시스템적 예외)
+            Throwable t = (Throwable)result;    // Throwable 타입 캐스팅
+            errorMsg.append(String.format("%s: %s Failure, message [$s]", point, call, t.getMessage()));
+        }
+        Log.d(TAG, errorMsg.toString());    // Log 찍기
+        return errorMsg.toString();         // 분기구분된 ErrorMsg 반환
     }
 }</code></pre>
 <p>1️⃣ <u>Token</u><br />&nbsp; &nbsp; &nbsp;: Github API의 시간 당 요청횟수가 50회로 제한됨으로 Token을 추가해서 시간당 5000회로 설정합니다<br />&nbsp; &nbsp; &nbsp;<a href="https://jaejong.tistory.com/94" target="_blank" rel="noopener">[Github OPEN API 토큰 발급 방법]</a></p>
@@ -522,15 +558,8 @@
 <p><!-- 코드블럭 종료 --></p>
 <p>&nbsp;</p>
 <h2 data-ke-size="size26">결과 GIF</h2>
-<p>[##_Image|kage@pv9OU/btqDDvIEwso/bDck1qvCt8gxgiAWDdKRaK/img.gif|alignCenter|data-filename="Honeycam 2020-04-23 02-13-12.gif" data-origin-width="398" data-origin-height="819" width="268" height="NaN" data-ke-mobilestyle="widthContent"|완성 모습||_##]</p>
-<p><a href="https://github.com/posth2071/GithubAPI_Sample" target="_blank" rel="noopener">[Github 소스 보러가기]</a></p>
-<figure id="og_1591287963798" contenteditable="false" data-ke-type="opengraph" data-og-type="object" data-og-title="posth2071/GithubAPI_Sample" data-og-description="Contribute to posth2071/GithubAPI_Sample development by creating an account on GitHub." data-og-host="github.com" data-og-source-url="https://github.com/posth2071/GithubAPI_Sample" data-og-url="https://github.com/posth2071/GithubAPI_Sample" data-og-image="https://scrap.kakaocdn.net/dn/J6PCo/hyGiS0Bjbg/D9onaHO41OF0bddZajinE1/img.jpg?width=400&amp;height=400&amp;face=0_0_400_400"><a href="https://github.com/posth2071/GithubAPI_Sample" target="_blank" rel="noopener" data-source-url="https://github.com/posth2071/GithubAPI_Sample">
-<div class="og-image" style="background-image: url('https://scrap.kakaocdn.net/dn/J6PCo/hyGiS0Bjbg/D9onaHO41OF0bddZajinE1/img.jpg?width=400&amp;height=400&amp;face=0_0_400_400');">&nbsp;</div>
-<div class="og-text">
-<p class="og-title">posth2071/GithubAPI_Sample</p>
-<p class="og-desc">Contribute to posth2071/GithubAPI_Sample development by creating an account on GitHub.</p>
-<p class="og-host">github.com</p>
-</div>
-</a></figure>
-<p>&nbsp;</p>
-<p><span style="color: #000000;"><!--소제목 종료--></span></p>
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/51239479/83848389-c6063180-a748-11ea-9fd4-a4f82894474a.gif" width="350" height="550"/>
+</p>
+
+[Github 소스 보러가기](https://github.com/posth2071/GithubAPI_Sample)
