@@ -1,7 +1,7 @@
 # Retrofit2 사용예시
 ## Github REST API + MVP 패턴 + Glide&nbsp; 사용
 <p align="center">
-	<img src="https://user-images.githubusercontent.com/51239479/83848389-c6063180-a748-11ea-9fd4-a4f82894474a.gif" width="200" height="400"/>
+	<img src="https://user-images.githubusercontent.com/51239479/83848389-c6063180-a748-11ea-9fd4-a4f82894474a.gif" width="350" height="550"/>
 </p>
 
 ## Tistory Blog
@@ -558,15 +558,8 @@
 <p><!-- 코드블럭 종료 --></p>
 <p>&nbsp;</p>
 <h2 data-ke-size="size26">결과 GIF</h2>
-<p>[##_Image|kage@pv9OU/btqDDvIEwso/bDck1qvCt8gxgiAWDdKRaK/img.gif|alignCenter|data-filename="Honeycam 2020-04-23 02-13-12.gif" data-origin-width="398" data-origin-height="819" width="268" height="NaN" data-ke-mobilestyle="widthContent"|완성 모습||_##]</p>
-<p><a href="https://github.com/posth2071/GithubAPI_Sample" target="_blank" rel="noopener">[Github 소스 보러가기]</a></p>
-<figure id="og_1591287963798" contenteditable="false" data-ke-type="opengraph" data-og-type="object" data-og-title="posth2071/GithubAPI_Sample" data-og-description="Contribute to posth2071/GithubAPI_Sample development by creating an account on GitHub." data-og-host="github.com" data-og-source-url="https://github.com/posth2071/GithubAPI_Sample" data-og-url="https://github.com/posth2071/GithubAPI_Sample" data-og-image="https://scrap.kakaocdn.net/dn/J6PCo/hyGiS0Bjbg/D9onaHO41OF0bddZajinE1/img.jpg?width=400&amp;height=400&amp;face=0_0_400_400"><a href="https://github.com/posth2071/GithubAPI_Sample" target="_blank" rel="noopener" data-source-url="https://github.com/posth2071/GithubAPI_Sample">
-<div class="og-image" style="background-image: url('https://scrap.kakaocdn.net/dn/J6PCo/hyGiS0Bjbg/D9onaHO41OF0bddZajinE1/img.jpg?width=400&amp;height=400&amp;face=0_0_400_400');">&nbsp;</div>
-<div class="og-text">
-<p class="og-title">posth2071/GithubAPI_Sample</p>
-<p class="og-desc">Contribute to posth2071/GithubAPI_Sample development by creating an account on GitHub.</p>
-<p class="og-host">github.com</p>
-</div>
-</a></figure>
-<p>&nbsp;</p>
-<p><span style="color: #000000;"><!--소제목 종료--></span></p>
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/51239479/83848389-c6063180-a748-11ea-9fd4-a4f82894474a.gif" width="350" height="550"/>
+</p>
+
+[Github 소스 보러가기](https://github.com/posth2071/GithubAPI_Sample" target="_blank" rel="noopener)
