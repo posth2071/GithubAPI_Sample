@@ -17,7 +17,7 @@ public class UserListModel implements UserListContract.Model {
 
         private final String TAG = "UserListModel";
 
-        private final String GITHUB_TOKEN = "token {Your Token...}";   // Github API Token - 시간당 Request 제한으로 필요
+        private final String GITHUB_TOKEN = "token {Your Token}";   // Github API Token - 시간당 Request 제한으로 필요
 
         List<User> users = new ArrayList<>();
         int count = 0;      // SubCall 마지막 통신결과 구분위한 count
@@ -98,12 +98,12 @@ public class UserListModel implements UserListContract.Model {
     private String RequestFail_Log(String call, String point, Object result) {
         StringBuilder errorMsg = new StringBuilder();
 
-        if (point.compareTo("onResponse")==0) {
+        if (result instanceof Response) {
             // onResponse에서 응답코드가 3xx & 4xx 일 경우
             Response response = (Response)result;   // Response 타입 캐스팅
             errorMsg.append(String.format("%s: %s Failure, Code [%d] message [%s]", point, call, response.code(), response.message()));
         }
-        else if (point.compareTo("onFailure")==0){
+        else if (result instanceof Throwable) {
             // onFailure에서 호출한 경우 (시스템적 예외)
             Throwable t = (Throwable)result;    // Throwable 타입 캐스팅
             errorMsg.append(String.format("%s: %s Failure, message [$s]", point, call, t.getMessage()));
