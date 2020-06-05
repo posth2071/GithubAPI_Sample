@@ -1,7 +1,7 @@
 # Retrofit2 사용예시
 ## Github REST API + MVP 패턴 + Glide&nbsp; 사용
 <p align="center">
-	<img src="https://user-images.githubusercontent.com/51239479/83848389-c6063180-a748-11ea-9fd4-a4f82894474a.gif" width="50%" height="50%"/>
+	<img src="https://user-images.githubusercontent.com/51239479/83848389-c6063180-a748-11ea-9fd4-a4f82894474a.gif" width="400" height="700"/>
 </p>
 
 
