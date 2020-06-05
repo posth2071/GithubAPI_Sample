@@ -4,7 +4,8 @@
 	<img src="https://user-images.githubusercontent.com/51239479/83848389-c6063180-a748-11ea-9fd4-a4f82894474a.gif" width="400" height="700"/>
 </p>
 
-[테스트링크](jaejong.tistory.com/93#UserListModel)
+## Tistory Blog
+[Tistory 설명 글 보러가기](jaejong.tistory.com/93#UserListModel)
 
 <p><span style="color: #000000;"><!--Title 시작--></span></p>
 <p class="editor_title">Retrofit2 사용예시 - Github REST API + MVP 패턴 + Glide&nbsp; 사용</p>
