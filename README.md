@@ -562,4 +562,4 @@
 	<img src="https://user-images.githubusercontent.com/51239479/83848389-c6063180-a748-11ea-9fd4-a4f82894474a.gif" width="350" height="550"/>
 </p>
 
-[Github 소스 보러가기](https://github.com/posth2071/GithubAPI_Sample" target="_blank" rel="noopener)
+[Github 소스 보러가기](https://github.com/posth2071/GithubAPI_Sample)
