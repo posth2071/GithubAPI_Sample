@@ -13,7 +13,7 @@ public interface UserListContract {
 
         void showToast(String message);
 
-        void onResponseFailure(Throwable throwable);    // 통신 실패 시 Presenter가 View 메서드 호출
+        void onResponseFailure(String errorMsg);    // 통신 실패 시 Presenter가 View 메서드 호출
     }
 
     // Presenter - Model 연결 인터페이스
@@ -22,7 +22,7 @@ public interface UserListContract {
         interface onFinishedListener {
             void onFinished(List<User> users);  // Request 성공 시
 
-            void onFailure(Throwable t);        // Request 실패 시
+            void onFailure(String errorMsg);        // Request 실패 시
         }
 
         // Model 구현 & Presenter 호출

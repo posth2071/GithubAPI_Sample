@@ -52,10 +52,10 @@ public class UserListPresenter implements UserListContract.Presenter, UserListCo
     // Presenter-Model 추상메서드 onFailure() 정의 (Model에서 사용)
     // Request 요청 실패할 경우
     @Override
-    public void onFailure(Throwable t) {
+    public void onFailure(String errorMsg) {
         // View 존재(소멸) 체크
         if (view != null) {
-            view.onResponseFailure(t);	// View 통신실패 이벤트 호출
+            view.onResponseFailure(errorMsg);	// View 통신실패 이벤트 호출
             view.hideProgress();	// 진행바(프로그래스바) 숨기기
         }
     }

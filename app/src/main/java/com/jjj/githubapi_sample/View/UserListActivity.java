@@ -55,9 +55,8 @@ public class UserListActivity extends AppCompatActivity implements UserListContr
 
 
     @Override
-    public void onResponseFailure(Throwable throwable) {
-        Log.d(TAG, throwable.getMessage());
-        Toast.makeText(this, "Network 통신 Error", Toast.LENGTH_SHORT).show();
+    public void onResponseFailure(String errorMsg) {
+        Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show();
     }
 
     @Override
