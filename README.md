@@ -1,5 +1,6 @@
 # Retrofit2 사용예시
 ## Github REST API + MVP 패턴 + Glide&nbsp; 사용
+![test](https://user-images.githubusercontent.com/51239479/83843959-0c579280-a741-11ea-9b0f-6841fac26db8.JPG)
 <p><span style="color: #000000;"><!--Title 시작--></span></p>
 <p class="editor_title">Retrofit2 사용예시 - Github REST API + MVP 패턴 + Glide&nbsp; 사용</p>
 <p><span style="color: #000000;"><!--Title 종료--></span></p>
